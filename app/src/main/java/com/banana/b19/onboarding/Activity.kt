@@ -1,5 +1,6 @@
 package com.banana.b19.onboarding
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentPagerAdapter
@@ -11,6 +12,7 @@ class Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_activity)
         viewPager.adapter = Adapter()
+
     }
 
     inner class Adapter :
@@ -19,13 +21,13 @@ class Activity : AppCompatActivity() {
             return 3
         }
 
-        override fun getItem(position: Int): Fragment {
+        override fun getItem(position: Int): AFragment {
             return when (position) {
-                0 -> Fragment()
-                1 -> Fragment()
-                2 -> Fragment()
+                0 -> newFragment(0xFF201E1F.toInt(), R.drawable.image, "GALERY", textcolor = 0xFFFFFFFF.toInt())
+                1 -> newFragment(0xFF616972.toInt(), R.drawable.ic_launcher_foreground, "FEAW", textcolor = 0xFFFFFFFF.toInt())
+                2 -> newFragment(0xFF7F76D2.toInt(), R.drawable.white_radius, "wsf", 0xFFFFFFFF.toInt())
 
-                else -> Fragment()
+                else -> AFragment()
 
             }
         }
